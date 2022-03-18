@@ -317,9 +317,12 @@ void LoadingAnime_32x32_Stop()
 void Shutdown()
 {
     log_d("Now the system is shutting down.");
-    // do not clear screen but indicate powered down state by a standby icon
-    //M5.EPD.Clear();
-    M5.EPD.WritePartGram4bpp(496, 16, 32, 32, ImageResource_item_icon_shutdown_32x32);
+    // // do not clear screen but indicate powered down state by a standby icon
+    // //M5.EPD.Clear();
+    // M5.EPD.WritePartGram4bpp(496, 16, 32, 32, ImageResource_item_icon_shutdown_32x32);
+    
+    M5.EPD.Clear();
+    M5.EPD.WritePartGram4bpp(0, 0, 540, 960, ImageResource_lacrs_back_540x960);    
     M5.EPD.UpdateFull(UPDATE_MODE_GC16);
 
     log_d("Saving and power off.");
